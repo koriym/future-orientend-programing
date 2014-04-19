@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ec450b-4262-4c17-9e9b-194481344b01" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/edit_app_php.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/edit_app_tpl.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/edit_page_php.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/html/edit_page_tpl.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/html/entry.html" afterPath="$PROJECT_DIR$/html/last.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="future-orientend-programing.iws" />
@@ -33,15 +28,15 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="156" selection-start="5239" selection-end="5239" vertical-scroll-proportion="0.3617021" vertical-offset="1928" max-vertical-offset="3615">
+            <state line="191" column="0" selection-start="7681" selection-end="7681" vertical-scroll-proportion="5.541586" vertical-offset="0" max-vertical-offset="3720">
               <folding>
                 <element signature="n#style#0;n#h2#0;n#section#3;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#section#5;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#section#5;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#section#6;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#section#7;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#pre#0;n#section#8;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#section#9;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#pre#0;n#section#9;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#section#10;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -227,15 +222,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="156" selection-start="5239" selection-end="5239" vertical-scroll-proportion="0.3617021" vertical-offset="1928" max-vertical-offset="3615">
+        <state line="191" column="0" selection-start="7681" selection-end="7681" vertical-scroll-proportion="5.541586" vertical-offset="0" max-vertical-offset="3720">
           <folding>
             <element signature="n#style#0;n#h2#0;n#section#3;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#section#5;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#5;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#section#6;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#section#7;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#pre#0;n#section#8;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#section#9;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#pre#0;n#section#9;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#section#10;n#section#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
