@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>/apps/Demo.Sandbox/src/Resource/App/Blog/Posts.tpl</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+    <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
+    <script>
+        $("body").bind("ajaxSend", function(elm, xhr, s){
+            if (s.type == "POST") {
+                xhr.setRequestHeader('X-BEAR-ACE-FROM', location.href);
+            }
+        });
+        $.codeEdit = {
+            reload : false,
+            changed : false,
+            factory : function() {
+                var editor = ace.edit("editor");
+                editor.setTheme("ace/theme/eclipse");
+                editor.getSession().setMode("ace/mode/php");
+                window.aceEditor = editor;
+                editor.getSession().setTabSize(4);
+                editor.getSession().setUseSoftTabs(true);
+                editor.getSession().setUseWrapMode(true);
+                editor.renderer.setHScrollBarAlwaysVisible(false);
+                editor.getSession().on('change', $.codeEdit.change);
+                editor.setHighlightActiveLine(true);
+                return editor;
+            },
+            save : function(file_path, data, save_url) {
+                if(typeof save_url === 'undefined') save_url = "index.php";
+                if ($.codeEdit.changed == false) {
+                    return;
+                }
+                $.codeEdit.changed = false;
+                $.ajax({
+                    type: "POST",
+                    url: save_url,
+                    headers: {
+                        'X-BEAR-Ace': 1
+                    },
+                    data: {
+                        file : file_path,
+                        contents : data
+                    },
+                    success: this.label('save'),
+                    dataType: 'html'
+                });
+            },
+            change : function() {
+                if ($.codeEdit.changed == true) {
+                    return;
+                }
+                $.codeEdit.label('changed');
+                $.codeEdit.changed = true;
+            },
+            reset : function() {
+                $.codeEdit.label('reset');
+                $.codeEdit.changed = false;
+            },
+            label : function(mode) {
+                var label = 'div#label.editor_label span.editor_file_save';
+                if (mode == 'reset') {
+                    // reset
+                    jQuery(label).html('SAVE').css('background-color', 'gray');
+                } else if (mode == 'changed') {
+                    // change
+                    jQuery(label).html('SAVE').css('background-color', 'green');
+                } else if (mode == 'readonly') {
+                    // change
+                    jQuery(label).html('Read Only').css('background-color', 'gray');
+                } else if (mode == 'save') {
+                    jQuery(label).html('Saving...').css('background-color', 'red').fadeOut().fadeIn('slow', function() {
+                        jQuery(label).html('SAVE').css('background-color', 'gray');
+                    });
+                    if (this.reload === true) {
+                        window.location.reload();
+                    }
+                }
+            }
+        }
+
+    </script>
+    <style>
+        body {
+            overflow: hidden;
+            font: 100% "Trebuchet MS", sans-serif;
+            background: #fff; ]
+        font-size: 16px;
+            font-family: monospace;
+            height: 99%;
+            margin: 0px;
+            padding: 3px 20px 20px;
+            color: black;
+        }
+
+        #editor {
+            margin: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .editor_label {
+            padding: 4px;
+            position: absolute;
+            right: 16px;
+            top: 2px;
+            z-index: 10;
+        }
+
+        .editor_file {
+            background-color: #FEF49C;
+            color: black;
+            font-family: arial, sans-serif;
+            font-size: 12px;
+            padding: 4px;
+        }
+
+        .error {
+            background-color: red;
+            color: white;
+            font-family: arial, sans-serif;
+            font-size: 12px;
+            padding: 4px;
+            left: 4px;
+        }
+
+        .editor_file_save {
+            background-color: grey;
+            color: white;
+            font-family: arial, sans-serif;
+            font-size: 12px;
+            padding: 4px;
+            cursor:	pointer;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="label" class="editor_label">
+        
+        <span class="editor_file">/apps/Demo.Sandbox/src/Resource/App/Blog/Posts.tpl</span>
+        <span class="editor_file_save" id="save_now">Save</span>
+    </div>
+    <pre id="editor">&lt;script src=&quot;/assets/js/modal.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/assets/js/delete_post.js&quot;&gt;&lt;/script&gt;
+&lt;table class=&quot;table table-bordered table-striped&quot;&gt;
+    &lt;tr&gt;
+        &lt;th class=&quot;span1&quot;&gt;Id&lt;/th&gt;
+        &lt;th&gt;Title&lt;/th&gt;
+        &lt;th&gt;Body&lt;/th&gt;
+        &lt;th&gt;CreatedAt&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+{foreach from=$resource-&gt;body item=post}
+    &lt;tr&gt;
+        &lt;td&gt;{$post.id}&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;{href rel=&quot;page_item&quot; data=$post}&quot;&gt;{$post.title|escape}&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;{$post.body|truncate:60|escape}&lt;/td&gt;
+        &lt;td&gt;{$post.created}&lt;/td&gt;
+        &lt;td&gt;
+            &lt;a title=&quot;Edit post&quot; class=&quot;btn&quot; href=&quot;/blog/posts/edit?id={$post.id}&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-edit&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;a title=&quot;Delete post&quot; class=&quot;btn remove confirm&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-trash&quot; data-post-id=&quot;{$post.id}&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+{/foreach}
+&lt;/table&gt;
+</pre>
+    <script>
+    $(function(){
+        editor = $.codeEdit.factory();
+        editor.gotoLine(0);
+        editor.setReadOnly(0);
+        $.codeEdit.label('reset');
+        var save = function() {$.codeEdit.save("/apps/Demo.Sandbox/src/Resource/App/Blog/Posts.tpl", editor.getSession().getValue());};
+        editor.commands.addCommand({
+            name: 'Save',
+            bindKey: {
+                win: 'Ctrl-S',
+                mac: 'Command-S'
+            },
+            exec: save
+        });
+         $('#save_now').click(save);
+    });
+    </script>
+</body>
+</html>
